@@ -23,11 +23,11 @@ export default function PostPage() {
     }, []);
 
     return (
-        <div className="flex flex-col items-center justify-center py-3 align-center">
-            {data.img ? <img className="max-w-xs rounded-lg sm:max-w-md" src={data.img}/> : <p/>}
-            <h2 className="text-lg ">{data.title}</h2>
-            <h4 className="pb-3 text-gray-500 text-md">{data.date}</h4>
-            <p className="max-w-3xl"> {data.description} </p>
+        <div className="flex flex-col max-w-2xl py-3 mx-auto align-center">
+            {data.img ? <img className="max-w-xs mx-auto mb-5 rounded-lg sm:max-w-md" src={data.img}/> : <p/>}
+            {/* <h2 className="text-2xl font-bold text-yellow-300">{data.title}</h2> */}
+            <h4 className="pb-3 text-xl text-gray-500 text-md">{data.date}</h4>
+            <p className="max-w-3xl text-lg"> {data.description} </p>
         </div>
     );
 }

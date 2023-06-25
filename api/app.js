@@ -1,21 +1,21 @@
 import express from "express";
-import dotenv from "dotenv";
 import mongoose from "mongoose";
 import Post from "./models/Post.js";
 import cors from 'cors'
-
-const PORT = 4000
+import dotenv from 'dotenv'
 dotenv.config();
-const app = express();
-app.use(cors())
 
+// eslint-disable-next-line no-undef
+const { REACT_APP_URL } = process.env
+const PORT = 4000
+const app = express();
+
+app.use(cors())
 app.use(express.json());
 
 mongoose.connect(
-    // eslint-disable-next-line no-undef
-    process.env.URL,
+    `${REACT_APP_URL}`,
 );
-
 
 // Create entry on the database
 // TODO: req.body (INPUT) for title, description, date.

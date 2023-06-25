@@ -1,4 +1,3 @@
-// import { useState } from "react";
 import "./App.css";
 import PostTitle from "./components/PostTitle";
 import { useState } from "react";
@@ -7,13 +6,11 @@ import axios from "axios";
 import { Link } from "react-router-dom";
 
 function App() {
-    const URL = 'http://localhost:4000'
+    const URL = "http://localhost:4000";
     const [data, setData] = useState([]);
 
     const fetchData = async () => {
-        axios
-            .get(`${URL}/data`)
-            .then((response) => setData(response.data));
+        axios.get(`${URL}/data`).then((response) => setData(response.data));
     };
 
     useEffect(() => {
@@ -22,8 +19,8 @@ function App() {
 
     return (
         <>
-            <div className="flex flex-col justify-center m-8">
-                <h1 className="flex justify-center text-5xl font-bold text-yellow-400 outline-8">
+            <div className="flex flex-col justify-center m-8 hero">
+                <h1 className="flex justify-center text-5xl font-bold text-yellow-300 font-bellow-400 outline-8">
                     hi, i am julian!
                 </h1>
                 <h4 className="flex justify-center">
@@ -35,7 +32,7 @@ function App() {
                 ></img>
             </div>
 
-            <div className="flex flex-col justify-center max-w-xl align-middle">
+            <div className="max-w-xl mx-auto posts">
                 <h1 className="my-4 text-xl">Latest Posts</h1>
 
                 {data.map((item, index) => (
