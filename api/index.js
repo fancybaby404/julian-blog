@@ -9,7 +9,7 @@ dotenv.config();
 
 // eslint-disable-next-line no-undef
 const { REACT_APP_URL } = process.env
-// const PORT = 4000
+const PORT = 3000
 const app = express();
 
 app.use(cors())
@@ -56,6 +56,6 @@ mongoose.connection.once('open', () => {
     mongoose.connection.useDb('blog');
     console.log("Connected to MongoDB");
     // eslint-disable-next-line no-undef
-    module.exports = app
-    // app.listen(PORT, () => console.log("Connected to port " + PORT));
+    // module.exports = app
+    app.listen(PORT, () => console.log("Connected to port " + PORT));
 })
