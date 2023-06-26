@@ -4,7 +4,7 @@ import { useParams } from "react-router-dom";
 
 // eslint-disable-next-line react/prop-types
 export default function PostPage() {
-    const URL = 'http://localhost:4000'
+    const URL = window.location.href
     const [data, setData] = useState([]);
     const { blogId } = useParams();
 
