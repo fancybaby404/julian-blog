@@ -6,7 +6,7 @@ import axios from "axios";
 import { Link } from "react-router-dom";
 
 function App() {
-    const URL = "http://localhost:4000";
+    const URL = window.location.href
     const [data, setData] = useState([]);
 
     const fetchData = async () => {
@@ -15,6 +15,7 @@ function App() {
 
     useEffect(() => {
         fetchData();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
 
     return (
