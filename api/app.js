@@ -1,3 +1,5 @@
+// REMOVE ALL AND PORT TO USING SUPABASE
+
 import express from "express";
 import mongoose from "mongoose";
 import Post from "./models/Post.js";
@@ -7,12 +9,13 @@ dotenv.config();
 
 // eslint-disable-next-line no-undef
 const { REACT_APP_URL } = process.env
-const PORT = 4000
+// const PORT = 4000
 const app = express();
 
 app.use(cors())
 app.use(express.json());
 
+console.log(REACT_APP_URL)
 mongoose.connect(
     `${REACT_APP_URL}`,
 );
@@ -52,5 +55,7 @@ app.post('/getpost', async (req, res) => {
 mongoose.connection.once('open', () => {
     mongoose.connection.useDb('blog');
     console.log("Connected to MongoDB");
-    app.listen(PORT, () => console.log("Connected to port " + PORT));
+    // eslint-disable-next-line no-undef
+    module.exports = app
+    // app.listen(PORT, () => console.log("Connected to port " + PORT));
 })
