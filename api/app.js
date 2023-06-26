@@ -13,6 +13,7 @@ const app = express();
 app.use(cors())
 app.use(express.json());
 
+console.log(REACT_APP_URL)
 mongoose.connect(
     `${REACT_APP_URL}`,
 );
