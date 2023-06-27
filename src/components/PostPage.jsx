@@ -2,7 +2,6 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 
-// eslint-disable-next-line react/prop-types
 export default function PostPage() {
     const URL = window.location.href
     const [data, setData] = useState([]);
