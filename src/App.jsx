@@ -10,7 +10,7 @@ function App() {
     const [data, setData] = useState([]);
 
     const fetchData = async () => {
-        axios.get(`${URL}/data`).then((response) => setData(response.data));
+        axios.get(`${URL}/api/data`).then((response) => setData(response.data));
     };
 
     useEffect(() => {

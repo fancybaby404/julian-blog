@@ -11,7 +11,7 @@ export default function PostPage() {
     // FETCH REQ
     const fetchData = async () => {
         axios
-            .post(`${URL}/getpost`, {
+            .post(`${URL}/api/getpost`, {
                 id: blogId,
             })
             .then((response) => setData(response.data));

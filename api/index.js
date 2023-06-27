@@ -22,9 +22,8 @@ mongoose.connect(
 
 // Create entry on the database
 // TODO: req.body (INPUT) for title, description, date.
-app.post("/create", async (req, res) => {
+app.post("/api/create", async (req, res) => {
     const { title, description, date } = "";
-
     try {
         const postDoc = await Post.create({
             title: title,
@@ -38,7 +37,7 @@ app.post("/create", async (req, res) => {
 });
 
 // Grab all data from the database and render on front page
-app.get('/data', async (req, res) => {
+app.get('/api/data', async (req, res) => {
     const result = await Post.find()
     res.json(result)
     // .then((doc) => {
@@ -46,7 +45,7 @@ app.get('/data', async (req, res) => {
     // })
 })
 
-app.post('/getpost', async (req, res) => {
+app.post('/api/getpost', async (req, res) => {
     const blogId = req.body
     const data = await Post.findById(blogId.id)
     res.json(data)
