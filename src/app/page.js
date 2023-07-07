@@ -8,13 +8,15 @@ import Link from "next/link";
 import { useEffect, useState } from "react";
 
 export default function Home() {
-    const URL = window.location.href;
+    let URL;
     const [data, setData] = useState([]);
 
     useEffect(() => {
-        axios.get(`${URL}/api/data`)
-            .then(response => setData(response.data))
-            .catch(e => console.log(e))
+        URL = window.location.href;
+        axios
+            .get(`${URL}/api/data`)
+            .then((response) => setData(response.data))
+            .catch((e) => console.log(e));
     }, []);
 
     return (

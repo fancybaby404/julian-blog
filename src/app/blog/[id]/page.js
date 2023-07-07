@@ -10,11 +10,12 @@ import { useParams } from 'next/navigation'
 export default function PostPage() {
     const [data, setData] = useState([]);
 
-    let URL = window.location.href.split("/");
-    URL = `${URL[0]}//${URL[2]}`
+    let URL;
     const BLOG_ID = useParams().id
     
     useEffect(() => {
+        URL = window.location.href.split("/");
+        URL = `${URL[0]}//${URL[2]}`
         axios
             .post(`${URL}/api/getpost`, {
                 id: BLOG_ID,
