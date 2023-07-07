@@ -14,6 +14,7 @@ export default function Home() {
     const [loading, setLoading] = useState(true);
 
     useEffect(() => {
+        setData([])
         setLoading(true);
         URL = window.location.href;
         axios
