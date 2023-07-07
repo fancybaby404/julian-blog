@@ -24,7 +24,7 @@ export default function PostPage() {
     }, []);
 
     return (
-        <>
+        <div className={"main max-w-2xl mx-auto h-screen"}>
             <Header />
 
             <div className="flex flex-col max-w-2xl py-3 mx-auto align-center">
@@ -44,6 +44,6 @@ export default function PostPage() {
                 </h4>
                 <p className="max-w-3xl text-lg"> {data.description && data.description} </p>
             </div>
-        </>
+        </div>
     );
 }

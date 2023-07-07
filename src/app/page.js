@@ -26,7 +26,7 @@ export default function Home() {
     }, []);
 
     return (
-        <>
+        <div className={"main max-w-2xl mx-auto h-screen"}>
             <Header />
 
             <div className="flex flex-col justify-center m-8 hero">
@@ -65,6 +65,6 @@ export default function Home() {
                     </>
                 )}
             </div>
-        </>
+        </div>
     );
 }
