@@ -1,6 +1,4 @@
-import Header from "@/components/Header";
 import "./globals.css";
-import styles from "./page.module.css"
 import { Montserrat } from "next/font/google";
 
 const inter = Montserrat({ subsets: ["latin"] });

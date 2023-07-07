@@ -2,6 +2,7 @@
 
 import Header from "@/components/Header";
 import PostTitle from "@/components/PostTitle";
+import Spinner from "@/components/Spinner";
 import axios from "axios";
 import Image from "next/image";
 import Link from "next/link";
@@ -10,12 +11,17 @@ import { useEffect, useState } from "react";
 export default function Home() {
     let URL;
     const [data, setData] = useState([]);
+    const [loading, setLoading] = useState(true);
 
     useEffect(() => {
+        setLoading(true);
         URL = window.location.href;
         axios
             .get(`${URL}/api/data`)
-            .then((response) => setData(response.data))
+            .then((response) => {
+                setData(response.data);
+                setLoading(false);
+            })
             .catch((e) => console.log(e));
     }, []);
 
@@ -42,16 +48,22 @@ export default function Home() {
             <div className="max-w-xl mx-auto posts">
                 <h1 className="my-4 text-xl">Latest Posts</h1>
 
-                {data.map((item, index) => (
-                    <Link key={item._id} href={`/blog/${item._id}`}>
-                        <PostTitle
-                            id={index}
-                            title={item.title}
-                            description={item.description}
-                            date={item.date}
-                        />
-                    </Link>
-                ))}
+                {loading ? (
+                    <Spinner />
+                ) : (
+                    <>
+                        {data.map((item, index) => (
+                            <Link key={item._id} href={`/blog/${item._id}`}>
+                                <PostTitle
+                                    id={index}
+                                    title={item.title}
+                                    description={item.description}
+                                    date={item.date}
+                                />
+                            </Link>
+                        ))}
+                    </>
+                )}
             </div>
         </>
     );
