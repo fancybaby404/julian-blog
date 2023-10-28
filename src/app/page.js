@@ -9,6 +9,7 @@ import Link from "next/link";
 import { useEffect, useState } from "react";
 
 export default function Home() {
+    // DEBUG
     let URL;
     const [data, setData] = useState([]);
     const [loading, setLoading] = useState(true);
