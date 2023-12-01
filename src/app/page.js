@@ -1,36 +1,11 @@
 "use client";
 
-import Header from "@/components/Header";
-import PostTitle from "@/components/PostTitle";
-import Spinner from "@/components/Spinner";
-import axios from "axios";
+import PostsList from "@/components/PostsList";
 import Image from "next/image";
-import Link from "next/link";
-import { useEffect, useState } from "react";
 
 export default function Home() {
-    // DEBUG
-    let URL;
-    const [data, setData] = useState([]);
-    const [loading, setLoading] = useState(true);
-
-    useEffect(() => {
-        setData([])
-        setLoading(true);
-        URL = window.location.href;
-        axios
-            .get(`${URL}/api/data`)
-            .then((response) => {
-                setData(response.data);
-                setLoading(false);
-            })
-            .catch((e) => console.log(e));
-    }, []);
-
     return (
-        <div className={"main max-w-2xl mx-auto h-screen"}>
-            <Header />
-
+        <>
             <div className="flex flex-col justify-center m-8 hero">
                 <h1 className="flex justify-center text-5xl font-bold text-yellow-300 font-bellow-400 outline-8">
                     hi, i am julian!
@@ -49,24 +24,8 @@ export default function Home() {
 
             <div className="max-w-xl mx-auto posts">
                 <h1 className="my-4 text-xl">Latest Posts</h1>
-
-                {loading ? (
-                    <Spinner />
-                ) : (
-                    <>
-                        {data.map((item, index) => (
-                            <Link key={item._id} href={`/blog/${item._id}`}>
-                                <PostTitle
-                                    id={index}
-                                    title={item.title}
-                                    description={item.description}
-                                    date={item.date}
-                                />
-                            </Link>
-                        ))}
-                    </>
-                )}
+                <PostsList />
             </div>
-        </div>
-    );
+        </>
+    )
 }

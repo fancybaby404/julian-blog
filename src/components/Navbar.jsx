@@ -1,6 +1,6 @@
 import Image from "next/image";
 
-export default function Header() {
+export default function Navbar() {
     return (
         <div className="flex flex-row justify-between max-w-2xl mx-auto header">
             <div className="flex flex-row py-2">

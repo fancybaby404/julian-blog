@@ -1,4 +1,4 @@
-import Header from "@/components/Header";
+import Header from "@/components/Navbar";
 import Spinner from "@/components/Spinner";
 
 export default function Loading() {
