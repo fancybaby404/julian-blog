@@ -13,7 +13,7 @@ export default function PostsList() {
         setData([])
         setLoading(true);
         axios
-            .get('/api/data', {
+            .get('/api/getpost', {
                 headers: {
                     'Cache-Control': 'no-store'
                 }
