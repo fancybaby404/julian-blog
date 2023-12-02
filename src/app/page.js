@@ -1,5 +1,3 @@
-"use client";
-
 import PostsList from "@/components/PostsList";
 import Image from "next/image";
 
